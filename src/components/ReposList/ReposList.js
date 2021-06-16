@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 //import styles from "./UsersList.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
-import RepoDetailed from "../RepoDetailed/RepoDetailed";
+import RepoDetailes from "../RepoDetailes/RepoDetailes";
 import { getRepos } from "../../api/repoApi";
 
 const ReposList = () => {
@@ -39,7 +39,7 @@ const ReposList = () => {
         <div>
           {data.map((elm, key) => (
             <div key={key}>
-              <RepoDetailed
+              <RepoDetailes
                 name={elm.name}
                 description={elm.description}
                 stars={elm.stargazers_count}
