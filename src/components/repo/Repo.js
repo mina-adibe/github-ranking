@@ -6,7 +6,12 @@ const Repo = ({ name, description, stars, issues, Username, avatar }) => {
   return (
     <div className={styles.container}>
       <div>
-        <img src={avatar} alt={Username} className={styles.image} />
+        <img
+          loading="lazy"
+          src={avatar}
+          alt={Username}
+          className={styles.image}
+        />
       </div>
       <div>
         <h2> {name}</h2>
