@@ -1,11 +1,11 @@
 import React from "react";
-import { ReposList, Navbar } from "../components/Index";
+import { RepoList, Navbar } from "../components/Index";
 
 const HomePage = () => {
   return (
     <div>
       <Navbar title="List of Repos" />
-      <ReposList />
+      <RepoList />
     </div>
   );
 };
