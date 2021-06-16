@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-//import styles from "./UsersList.module.css";
+import styles from "./ReposList.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import RepoDetailes from "../RepoDetailes/RepoDetailes";
 import { getRepos } from "../../api/repoApi";
@@ -8,6 +8,7 @@ const ReposList = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetchRipos();
@@ -16,15 +17,19 @@ const ReposList = () => {
 
   //fetch data
   const fetchRipos = () => {
-    getRepos(page).then((res) => {
-      setData([...data, ...res.items]);
-    });
+    getRepos(page)
+      .then((res) => {
+        setData([...data, ...res.items]);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
     setPage(page + 1);
   };
 
   return (
-    <div>
-      <h1>list of repos</h1>
+    <div className={styles.container}>
       <InfiniteScroll
         dataLength={data.length}
         next={fetchRipos}
@@ -37,20 +42,22 @@ const ReposList = () => {
         }
       >
         <div>
-          {data.map((elm, key) => (
-            <div key={key}>
-              <RepoDetailes
-                name={elm.name}
-                description={elm.description}
-                stars={elm.stargazers_count}
-                issues={elm.open_issues_count}
-                Username={elm?.owner?.login}
-                avatar={elm?.owner?.avatar_url}
-              />
-            </div>
-          ))}
+          {data &&
+            data.map((repo, key) => (
+              <div key={key}>
+                <RepoDetailes
+                  name={repo.name}
+                  description={repo.description}
+                  stars={repo.stargazers_count}
+                  issues={repo.open_issues_count}
+                  Username={repo?.owner?.login}
+                  avatar={repo?.owner?.avatar_url}
+                />
+              </div>
+            ))}
         </div>
       </InfiniteScroll>
+      {error && <div className={styles.error}>error found</div>}
     </div>
   );
 };
