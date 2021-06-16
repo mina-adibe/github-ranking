@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { getSingleRepo } from "../api/repoApi";
 import { RepoDetails, Navbar } from "../components/Index";
 
 const SingleRepo = (props) => {
   const { name, username } = props.match.params;
-  //console.log(name, username);
 
   const [data, setData] = useState({
     name: "",
+    description: "",
     stargazers_count: "",
     open_issues_count: "",
     login: "",
@@ -21,10 +21,10 @@ const SingleRepo = (props) => {
   }, []);
 
   //fetch data
-  const fetchSingleRipo = () => {
+  const fetchSingleRipo = useCallback(() => {
     getSingleRepo(username, name)
       .then((res) => {
-        const { name, stargazers_count, open_issues_count } = res;
+        const { name, stargazers_count, open_issues_count, description } = res;
         const { avatar_url, login } = res.owner;
         setData({
           name,
@@ -32,15 +32,15 @@ const SingleRepo = (props) => {
           open_issues_count,
           login,
           avatar_url,
+          description,
         });
       })
-
       .catch((err) => {
         console.log(err);
         setError(true);
       });
-  };
-  console.log(data);
+  }, [username, name]);
+
   return (
     <>
       <Navbar title={name} />
