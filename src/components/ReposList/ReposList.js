@@ -3,7 +3,7 @@ import styles from "./ReposList.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import RepoDetailes from "../RepoDetailes/RepoDetailes";
 import { getRepos } from "../../api/repoApi";
-
+import { CountRepos } from "../Index";
 const ReposList = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
@@ -26,10 +26,12 @@ const ReposList = () => {
         setError(true);
       });
     setPage(page + 1);
+    console.log("??????????", data.length);
   };
 
   return (
     <div className={styles.container}>
+      <CountRepos countrepos={data.length} />
       <InfiniteScroll
         dataLength={data.length}
         next={fetchRipos}
@@ -46,10 +48,10 @@ const ReposList = () => {
             data.map((repo, key) => (
               <div key={key}>
                 <RepoDetailes
-                  name={repo.name}
-                  description={repo.description}
-                  stars={repo.stargazers_count}
-                  issues={repo.open_issues_count}
+                  name={repo?.name}
+                  description={repo?.description}
+                  stars={repo?.stargazers_count}
+                  issues={repo?.open_issues_count}
                   Username={repo?.owner?.login}
                   avatar={repo?.owner?.avatar_url}
                 />
