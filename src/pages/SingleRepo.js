@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getSingleRepo } from "../api/repoApi";
-import { RepoDetailes, Navbar } from "../components/Index";
+import { RepoDetails, Navbar } from "../components/Index";
 
 const SingleRepo = (props) => {
   const { name, username } = props.match.params;
@@ -45,7 +45,7 @@ const SingleRepo = (props) => {
     <>
       <Navbar title={name} />
       <div style={{ marginTop: 150 }}>
-        <RepoDetailes
+        <RepoDetails
           name={data.name}
           description={data.description}
           stars={data.stargazers_count}

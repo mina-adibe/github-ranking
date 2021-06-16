@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ReposList.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
-import RepoDetailes from "../RepoDetailes/RepoDetailes";
+import RepoDetails from "../RepoDetails/RepoDetails";
 import { getRepos } from "../../api/repoApi";
 import { CountRepos } from "../Index";
 const ReposList = () => {
@@ -47,12 +47,12 @@ const ReposList = () => {
           {data &&
             data.map((repo, key) => (
               <div key={key}>
-                <RepoDetailes
+                <RepoDetails
                   name={repo?.name}
                   description={repo?.description}
                   stars={repo?.stargazers_count}
                   issues={repo?.open_issues_count}
-                  Username={repo?.owner?.login}
+                  username={repo?.owner?.login}
                   avatar={repo?.owner?.avatar_url}
                 />
               </div>
