@@ -3,14 +3,36 @@
   margin: 30px auto;
   display: flex;
   border-radius: 5px;
-
   padding: 15px;
   box-shadow: 0 10px 40px -10px rgb(0 64 128 / 10%);
   border: 1px solid #eee;
   background: #f9fafc;
 }
 
+.container_right {
+  padding: 20px;
+}
 .image {
   width: 250px;
   border-radius: 10px;
+}
+
+.my_button {
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: Brush Script MT;
+  font-size: 22px;
+  font-weight: 100;
+  padding: 20px;
+  background-color: #551a8b;
+  border: solid #9d90a8 4px;
+  text-decoration: none;
+  text-align: center;
+  margin: 20px 30px;
+  display: inline-flex;
+}
+
+.title {
+  font-size: 20px;
+  margin: 5px 0px;
 }
