@@ -1,5 +1,5 @@
-import ReposList from "./components/ReposList/ReposList";
 import "./App.css";
+import { ReposList } from "./components/Index";
 
 function App() {
   return (
