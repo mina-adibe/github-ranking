@@ -1,13 +1,16 @@
 import "./App.css";
-import { ReposList } from "./components/Index";
+import { HomePage, NotFound, SingleRepo } from "./pages/index";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <div>
-        <ReposList />
-      </div>
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/repo/:username/:name" component={SingleRepo} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 

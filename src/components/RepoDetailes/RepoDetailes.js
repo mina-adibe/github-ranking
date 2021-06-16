@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./RepoDetailes.module.css";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const RepoDetailes = ({
   name,
@@ -21,7 +22,9 @@ const RepoDetailes = ({
         />
       </div>
       <div>
-        <h2> {name}</h2>
+        <h2>
+          <Link to={`/repo/${Username}/${name}`}>{name}</Link>
+        </h2>
         <p> {description}</p>
         <div>
           <p>stars: {stars} </p>
