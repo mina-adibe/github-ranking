@@ -50,7 +50,7 @@ const SingleRepo = (props) => {
           description={data.description}
           stars={data.stargazers_count}
           issues={data.open_issues_count}
-          Username={data.login}
+          username={data.login}
           avatar={data.avatar_url}
         />
       </div>
