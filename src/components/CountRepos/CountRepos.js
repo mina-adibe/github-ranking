@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./CountRepos.module.css";
 
-const CountRepos = ({ countrepos }) => {
+const CountRepos = ({ countrepos, page }) => {
   return (
     <div className={styles.container}>
-      <h2>number of repos : {countrepos}</h2>
+      <h3>page: {page}</h3>
+      <h3>No of repos: {countrepos}</h3>
     </div>
   );
 };
