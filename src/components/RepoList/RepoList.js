@@ -31,7 +31,7 @@ const RepoList = () => {
 
   return (
     <div className={styles.container}>
-      <CountRepos countrepos={data.length} />
+      <CountRepos countrepos={data.length} page={page} />
       <InfiniteScroll
         dataLength={data.length}
         next={fetchMore}
@@ -52,7 +52,7 @@ const RepoList = () => {
                   description={repo?.description}
                   stars={repo?.stargazers_count}
                   issues={repo?.open_issues_count}
-                  username={repo?.owner?.login}
+                  username={repo.owner.login}
                   avatar={repo?.owner?.avatar_url}
                 />
               </div>
