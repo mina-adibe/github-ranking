@@ -1,11 +1,11 @@
-import UsersList from "./components/usersList/UsersList";
+import ReposList from "./components/ReposList/ReposList";
 import "./App.css";
 
 function App() {
   return (
     <>
       <div>
-        <UsersList />
+        <ReposList />
       </div>
     </>
   );

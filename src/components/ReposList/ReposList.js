@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 //import styles from "./UsersList.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Repo from "../repo/Repo";
+import RepoDetailed from "../RepoDetailed/RepoDetailed";
 import { getRepos } from "../../api/repoApi";
 
-const UsersList = () => {
+const ReposList = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -39,7 +39,7 @@ const UsersList = () => {
         <div>
           {data.map((elm, key) => (
             <div key={key}>
-              <Repo
+              <RepoDetailed
                 name={elm.name}
                 description={elm.description}
                 stars={elm.stargazers_count}
@@ -55,4 +55,4 @@ const UsersList = () => {
   );
 };
 
-export default UsersList;
+export default ReposList;

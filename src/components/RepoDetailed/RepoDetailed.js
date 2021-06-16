@@ -1,8 +1,15 @@
 import React from "react";
-import styles from "./Repo.module.css";
+import styles from "./RepoDetailed.module.css";
 import PropTypes from "prop-types";
 
-const Repo = ({ name, description, stars, issues, Username, avatar }) => {
+const RepoDetailed = ({
+  name,
+  description,
+  stars,
+  issues,
+  Username,
+  avatar,
+}) => {
   return (
     <div className={styles.container}>
       <div>
@@ -25,7 +32,7 @@ const Repo = ({ name, description, stars, issues, Username, avatar }) => {
     </div>
   );
 };
-Repo.propTypes = {
+RepoDetailed.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   stars: PropTypes.number,
@@ -34,4 +41,4 @@ Repo.propTypes = {
   avatar: PropTypes.string,
 };
 
-export default Repo;
+export default RepoDetailed;
