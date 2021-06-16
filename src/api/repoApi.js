@@ -9,3 +9,9 @@ export function getRepos(page) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function getSingleRepo(username, name) {
+  return fetch(`${baseUrl}repos/${username}/${name}`)
+    .then(handleResponse)
+    .catch(handleError);
+}
