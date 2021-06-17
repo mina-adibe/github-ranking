@@ -19,8 +19,8 @@ The task was to implement a small webapp that will list the most starred Github 
 ## Screenshot
 
 The final result of the project looks like :
-![](public/images/screenshot1.JPG)
-![](public/images/screenshot2.JPG)
+![](https://github.com/mina-adibe/github-ranking/blob/master/public/assets/screenshot1.JPG)
+![](https://github.com/mina-adibe/github-ranking/blob/master/public/assets/screenshot2.JPG)
 
 ## Technologies Used in Project
 
